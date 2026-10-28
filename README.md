@@ -98,7 +98,7 @@ flowchart TD
 
 ### 1. Clone & Setup Environment
 ```bash
-git clone https://github.com/desousaejai/optiasset-cmms.git
+git clone https://github.com/apollos-mint/optiasset-cmms.git
 cd optiasset-cmms
 cp .env.example .env
 ```
