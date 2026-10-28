@@ -1,0 +1,19 @@
+{
+  "name": "optiasset-cmms",
+  "version": "1.0.0",
+  "description": "OptiAsset CMMS — Enterprise Asset & Industrial Maintenance Architecture",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "build": "npm --prefix frontend run build",
+    "build:backend": "npm --prefix backend run build",
+    "start": "npm --prefix backend run start"
+  },
+  "author": "Eduardo De Sousa",
+  "license": "MIT"
+}

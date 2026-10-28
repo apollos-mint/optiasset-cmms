@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production builds
+dist/
+build/
+out/
+
+# Critical Zero-Leak & Database Backups
+*.bak
+*.mdf
+*.ldf
+*.sql.gz
+*.tar.gz
+*.config
+*.log
+logs/
+
+# Sensitive Media & Legacy Assets
+Formatos*
+brag-output/
+*.mp4
+*.mp3
+scratch/
+graphify-out/
+
+# Environment Variables (Strictly Protected)
+.env
+.env.*
+!.env.example
+
+# Vercel & IDE
+.vercel
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+*.tsbuildinfo

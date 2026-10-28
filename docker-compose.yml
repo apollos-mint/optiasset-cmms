@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # Primary Production Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: optiasset_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-optiasset_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    restart: unless-stopped
+
+  # Optional Enterprise ERP Bridge (Legacy MSSQL)
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: optiasset_erp_mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${ERP_DB_PASSWORD:-StrongPassword123!}
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./db:/var/opt/mssql/backup:ro
+    restart: unless-stopped
+
+volumes:
+  pgdata:
